@@ -10,8 +10,13 @@ environment:
   sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
+  cloud_firestore: ^4.17.3
+  equatable: ^2.0.5
+  firebase_core: ^2.31.0
+  firebase_storage: ^11.7.5
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.5
   flutter_localizations:
     sdk: flutter
 
