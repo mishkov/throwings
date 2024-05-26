@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:throwings/src/throwings_list/throwings_list_bloc.dart';
 
 import 'firebase_options.dart';
 import 'src/app.dart';
@@ -24,5 +26,16 @@ void main() async {
   // Run the app and pass in the SettingsController. The app listens to the
   // SettingsController for changes, then passes it further down to the
   // SettingsView.
-  runApp(MyApp(settingsController: settingsController));
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<ThrowingsListBloc>(
+          create: (BuildContext context) => ThrowingsListBloc(),
+        ),
+      ],
+      child: MyApp(
+        settingsController: settingsController,
+      ),
+    ),
+  );
 }
